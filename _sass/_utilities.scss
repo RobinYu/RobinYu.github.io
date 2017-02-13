@@ -467,4 +467,16 @@ a.reversefootnote {
 .required {
   color: $danger-color;
   font-weight: bold;
+  }
+
+
+ /*
+ +   Google Custom Search Engine
+ +   ========================================================================== */
+
+ .gsc-control-cse {
+
+   table, tr, td {
+     border: 0; /* remove table borders widget */
+   }
 }
