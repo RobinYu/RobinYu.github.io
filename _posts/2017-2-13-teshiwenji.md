@@ -1,11 +1,6 @@
 ---
 title: "《特师文集》：活在裆下 时代的晚上"
-image:
-  path: &image images/teshi.jpg
-  feature: *image
-  teaser: images/teshi.jpg
-  credit: "Photo by **daguguguji**"
-  creditlink: "http://weibo.com/dagudu"
+
 tags:
   - 写作
 ---
