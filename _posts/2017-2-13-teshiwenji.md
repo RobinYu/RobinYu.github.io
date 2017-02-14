@@ -1,7 +1,7 @@
 ---
 title: "《特师文集》：活在裆下 时代的晚上"
 header:
-  image: /images/teshi.jpg
+  image: teshi.jpg
   caption: "Photo by: [**daguguguji**](http://weibo.com/dagudu)"
 tags:
   - innner peace
