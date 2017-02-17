@@ -6,7 +6,7 @@ tags:
 ---
 
 {% capture fig_img %}
-![Foo]({{ "/images/216.jpg" | absolute_url }})(http://www.ynharari.com/)
+[![Foo]({{ "/images/216.jpg" | absolute_url }})](http://www.ynharari.com/)
 {% endcapture %}
 
 {% capture fig_caption %}
