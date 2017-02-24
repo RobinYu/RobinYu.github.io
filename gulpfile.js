@@ -2,6 +2,8 @@ var gulp = require('gulp');
 browserSync = require('browser-sync');
 sass = require('gulp-sass');
 cp = require('child_process');
+argv = require('yargs').argv;
+shell = require('shelljs');
 
 var base_path = './',
   src = base_path + '_sass',
@@ -26,9 +28,14 @@ var base_path = './',
     ]
   };
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('serve', ['sass'], function() {
-
-  browserSync.init({server: "_site/", https: true});
+gulp.task('browser-sync', [
+  'sass', 'build-jekyll'
+], function() {
+  browserSync({
+    server: {
+      baseDir: '_site'
+    }
+  });
 });
 
 // scss编译后的css将注入到浏览器里实现更新
@@ -38,9 +45,13 @@ gulp.task('sass', function() {
 
 // build Jekyll
 gulp.task('build-jekyll', function(done) {
-  return cp.spawn('C:\\Ruby23-x64\\bin\\bundle.bat', [
-    'exec', 'jekyll', 'build'
-  ], {stdio: 'inherit'}).on('close', done);
+  if (!argv.prod) {
+    shell.exec('bundle exec jekyll build --config _config.yml,_config.dev.yml');
+    done();
+  } else if (argv.prod) {
+    shell.exec('bundle exec jekyll build');
+    done();
+  }
 });
 
 /**
@@ -59,4 +70,4 @@ gulp.task('watch', function() {
   gulp.watch(paths.jekyll, ['jekyll-rebuild']);
 });
 
-gulp.task('default', ['serve', 'watch']);
+gulp.task('default', ['browser-sync', 'watch']);
