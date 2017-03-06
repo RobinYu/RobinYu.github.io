@@ -11,6 +11,8 @@ source "https://rubygems.org"
 
 gem "jekyll"
 
+gem "minimal-mistakes-jekyll"
+
 # If you want to use Jekyll native, uncomment the line below.
 # To upgrade, run `bundle update`.
 
@@ -29,5 +31,5 @@ group :jekyll_plugins do
   gem 'jekyll-archives'
   gem 'jekyll-tagging-related_posts'
   gem 'jekyll-seo-tag'
-  
+
 end
