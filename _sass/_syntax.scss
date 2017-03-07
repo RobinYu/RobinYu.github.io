@@ -46,7 +46,7 @@ figure.highlight {
     padding: 5px;
     border: 0;
 
-    // line numbers
+    /* line numbers*/
     &.gutter {
       padding-right: 1em;
       color: $light-gray;
@@ -63,7 +63,6 @@ figure.highlight {
 /*
    Solarized Light
    http://ethanschoonover.com/solarized
-
    SOLARIZED HEX      ROLE
    --------- -------- ------------------------------------------
    base01    #586e75  body text / default code / primary content
