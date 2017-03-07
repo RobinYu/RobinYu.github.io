@@ -467,16 +467,39 @@ a.reversefootnote {
 .required {
   color: $danger-color;
   font-weight: bold;
+}
+
+
+/*
+   Google Custom Search Engine
+   ========================================================================== */
+
+.gsc-control-cse {
+
+  table, tr, td {
+    border: 0; /* remove table borders widget */
   }
+}
 
+/*
+   Responsive Video Embed
+      ========================================================================== */
 
- /*
- +   Google Custom Search Engine
- +   ========================================================================== */
+.responsive-video-container {
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
 
- .gsc-control-cse {
-
-   table, tr, td {
-     border: 0; /* remove table borders widget */
-   }
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
