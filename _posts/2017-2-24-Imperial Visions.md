@@ -2,7 +2,7 @@
 title: "《人类简史》帝国的愿景"
 header:
   image: https://source.unsplash.com/kaEhf0eZme8
-  caption: "Photo by: [**Nils Huber**](https://unsplash.com/@nilshuber?photo=kaEhf0eZme8)"
+  caption: "Photo by: [**Nils Huber**](https://unsplash.com/@nilshuber)"
 tags:
   - A brief history of humankind
 ---
