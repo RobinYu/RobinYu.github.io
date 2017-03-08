@@ -1,22 +1,14 @@
 ---
 title: "《人类简史》 农业革命"
-
+header:
+  image: /images/215.jpg
+  caption: "Photo from: [**ynharari.com**](http://www.ynharari.com/)"
 tags:
-  - books
+  - A brief history of humankind
 ---
 
-{% capture fig_img %}
-[![Foo]({{ "/images/215.jpg" | absolute_url }})](http://www.ynharari.com/)
-{% endcapture %}
 
-{% capture fig_caption %}
-Photo from ynharari.com.
-{% endcapture %}
 
-<figure>
-  {{ fig_img | markdownify | remove: "<p>" | remove: "</p>" }}
-  <figcaption>{{ fig_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
-</figure>
 
  为了时髦而读书是可耻的！
 

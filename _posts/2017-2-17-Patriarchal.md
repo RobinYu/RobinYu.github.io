@@ -1,22 +1,13 @@
 ---
 title: "《人类简史》 父权基因理论"
-
+header:
+  image: /images/217.jpg
+  caption: "Photo from: [**ynharari.com**](http://www.ynharari.com/)"
 tags:
-  - books
+  - A brief history of humankind
 ---
 
-{% capture fig_img %}
-[![Foo]({{ "/images/217.jpg" | absolute_url }})](http://www.ynharari.com/)
-{% endcapture %}
 
-{% capture fig_caption %}
-Photo from ynharari.com.
-{% endcapture %}
-
-<figure>
-  {{ fig_img | markdownify | remove: "<p>" | remove: "</p>" }}
-  <figcaption>{{ fig_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
-</figure>
 
 如果从生物学的角度如何解释父权基因理论呢？也许重点并不在暴力或是蛮力上。随着数百万年的时间流逝，在生存和繁殖策略上男人和女人发展是不同的。
 

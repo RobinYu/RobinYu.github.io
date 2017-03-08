@@ -1,22 +1,13 @@
 ---
 title: "《人类简史》 历史从无正义"
-
+header:
+  image: /images/216.jpg
+  caption: "Photo from: [**ynharari.com**](http://www.ynharari.com/)"
 tags:
-  - books
+  - A brief history of humankind
 ---
 
-{% capture fig_img %}
-[![Foo]({{ "/images/216.jpg" | absolute_url }})](http://www.ynharari.com/)
-{% endcapture %}
 
-{% capture fig_caption %}
-Photo from ynharari.com.
-{% endcapture %}
-
-<figure>
-  {{ fig_img | markdownify | remove: "<p>" | remove: "</p>" }}
-  <figcaption>{{ fig_caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
-</figure>
 
 
 人类有大规模合作的生物本能基因，如何维持这种合作网络了？于是人类通过想象构建秩序，发明文字。这些秩序总会把人类分类，上等人有上等人的各种特权和优势，而下等人只会遭受压迫和奴役。
