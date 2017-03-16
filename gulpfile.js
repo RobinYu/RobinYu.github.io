@@ -27,47 +27,53 @@ var base_path = './',
       'assets/**/*'
     ]
   };
+
+// scss编译后的css将注入到浏览器里实现更新
+  gulp.task('sass', function() {
+    return gulp.src(paths.scss)
+    .pipe(sass())
+    .pipe(gulp.dest("css"))
+    .pipe(browserSync.reload({stream: true}));
+  });
+
+  // build Jekyll
+gulp.task('build-jekyll', function(done) {
+    if (!argv.prod) {
+      shell.exec('bundle exec jekyll build --config _config.yml,_config.dev.yml');
+      done();
+    } else if (argv.prod) {
+      shell.exec('bundle exec jekyll build');
+      done();
+    }
+  });
+
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('browser-sync', [
-  'sass', 'build-jekyll'
-], function() {
+gulp.task('browser-sync', gulp.series(gulp.parallel('sass', 'build-jekyll'), function() {
   browserSync({
     server: {
       baseDir: '_site'
     }
   });
-});
+}));
 
-// scss编译后的css将注入到浏览器里实现更新
-gulp.task('sass', function() {
-  return gulp.src(paths.scss).pipe(sass()).pipe(gulp.dest("css")).pipe(browserSync.reload({stream: true}));
-});
 
-// build Jekyll
-gulp.task('build-jekyll', function(done) {
-  if (!argv.prod) {
-    shell.exec('bundle exec jekyll build --config _config.yml,_config.dev.yml');
-    done();
-  } else if (argv.prod) {
-    shell.exec('bundle exec jekyll build');
-    done();
-  }
-});
+
+
 
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', ['build-jekyll'], function() {
+gulp.task('jekyll-rebuild', gulp.series('build-jekyll', function() {
   browserSync.reload();
-});
+}));
 
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function() {
-  gulp.watch(paths.scss, ['sass']);
-  gulp.watch(paths.jekyll, ['jekyll-rebuild']);
+  gulp.watch(paths.scss, gulp.series('sass'));
+  gulp.watch(paths.jekyll, gulp.series('jekyll-rebuild'));
 });
 
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', gulp.series('browser-sync', 'watch'));
