@@ -66,6 +66,3 @@ gulp.task('browser-sync', gulp.series(gulp.parallel('sass', 'build-jekyll'), (do
   gulp.watch(paths.scss, gulp.series('sass'));
   gulp.watch(paths.jekyll, gulp.series('build-jekyll', reload));
 }));
-
-
-gulp.task('default', gulp.parallel('browser-sync', 'watch'));
