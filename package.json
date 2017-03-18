@@ -29,6 +29,7 @@
     "gulp-sass": "^3.1.0",
     "npm-run-all": "^1.8.0",
     "onchange": "^2.5.0",
+    "require-dir": "^0.3.1",
     "shelljs": "^0.7.7",
     "uglify-js": "^2.8.7",
     "yargs": "^6.6.0"
