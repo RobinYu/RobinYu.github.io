@@ -9,13 +9,14 @@ paths.stylesFolderName   = '_sass';
 // Directory locations.
 paths.assetsDir          = paths.assetsFolderName + '/';
 
-
+// Source asset files locations.
+paths.sassFiles          = paths.stylesFolderName;
 
 // Glob patterns by file type.
 paths.sassPattern        = '/**/*.scss';
 
 // File globs
-paths.sassFilesGlob      =paths.stylesFolderName + paths.sassPattern
+paths.sassFilesGlob      =paths.sassFiles + paths.sassPattern
 
 
 
