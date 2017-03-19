@@ -5,6 +5,10 @@ cp = require('child_process');
 argv = require('yargs').argv;
 shell = require('shelljs');
 
+
+// include paths file
+var paths        = require('../paths');
+
 var base_path = './',
   src = base_path + '_sass',
   dist = base_path + 'assets',
@@ -29,7 +33,7 @@ var base_path = './',
   };
 
 // scss编译后的css将注入到浏览器里实现更新
-  gulp.task('sass', () =>
+  gulp.task('styles', () =>
     gulp.src(paths.scss)
     .pipe(sass())
     .pipe(gulp.dest("css"))
@@ -42,19 +46,9 @@ var base_path = './',
     done();
   }
 
-  // build Jekyll
-gulp.task('build-jekyll', done => {
-    if (!argv.prod) {
-      shell.exec('bundle exec jekyll build --config _config.yml,_config.dev.yml');
-      done();
-    } else if (argv.prod) {
-      shell.exec('bundle exec jekyll build');
-      done();
-    }
-  });
 
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('browser-sync', gulp.series(gulp.parallel('sass', 'build-jekyll'), (done) => {
+gulp.task('serve', (done) => {
   browserSync({
     server: {
       baseDir: '_site'
@@ -63,6 +57,6 @@ gulp.task('browser-sync', gulp.series(gulp.parallel('sass', 'build-jekyll'), (do
   done();
 
   // watch various files for changes and do the needful
-  gulp.watch(paths.scss, gulp.series('sass'));
-  gulp.watch(paths.jekyll, gulp.series('build-jekyll', reload));
-}));
+  gulp.watch(paths.scss, gulp.series('styles'));
+  gulp.watch(paths.jekyll, gulp.series('build:site', reload));
+});
