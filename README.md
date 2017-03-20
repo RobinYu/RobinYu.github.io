@@ -11,9 +11,9 @@ See what's new in the [CHANGELOG](CHANGELOG.md).
 [![Minimal Mistakes live preview][2]][1]
 
 [1]: https://mmistakes.github.io/minimal-mistakes/
-[2]: screenshot.png (live preview)
+[2]: /images/screenshot.png (live preview)
 
-![layout examples](screenshot-layouts.png)
+![layout examples](/images/screenshot-layouts.png)
 
 ## Notable Features
 
