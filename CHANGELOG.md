@@ -1,5 +1,11 @@
 ## Unreleased
 
+### Bug Fixes
+
+- Toggle close button on `mouseleave`. [#975](https://github.com/mmistakes/minimal-mistakes/issues/975)
+
+## [4.4.1](https://github.com/mmistakes/minimal-mistakes/releases/tag/4.4.1)
+
 ### Enhancements
 
 - Add Greek localized UI text strings. [#958](https://github.com/mmistakes/minimal-mistakes/pull/958)

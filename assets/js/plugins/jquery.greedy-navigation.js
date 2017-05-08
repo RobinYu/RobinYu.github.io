@@ -46,7 +46,9 @@ $(document).ready(function(){
     $btn.attr("count", numOfItems - numOfVisibleItems);
     if (numOfVisibleItems === numOfItems) {
       $btn.addClass('hidden');
-    } else $btn.removeClass('hidden');
+    } else {
+      $btn.removeClass('hidden');
+    }
   }
 
   // Window listeners
