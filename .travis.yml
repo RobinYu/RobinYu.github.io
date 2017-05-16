@@ -4,7 +4,11 @@ rvm:
 
 sudo: false
 
-
+cache:
+  bundler: true
+  yarn: true
+  directories:
+    - node_modules # NPM packages
 
 branches:
   only:
@@ -14,6 +18,9 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 
+before_install:
+  - nvm install 6
+  - npm install -g yarn && yarn
+
 script:
-  - bundle install
   - gulp build --prod
