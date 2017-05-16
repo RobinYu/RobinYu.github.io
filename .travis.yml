@@ -14,4 +14,6 @@ env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
 
-script: gulp build --prod
+script:
+  - bundle install
+  - gulp build --prod
