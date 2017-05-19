@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 browserSync = require('browser-sync');
 sass = require('gulp-sass');
-cp = require('child_process');
 argv = require('yargs').argv;
 shell = require('shelljs');
 
