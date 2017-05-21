@@ -2,13 +2,14 @@ language: ruby
 rvm:
   - 2.3.3
 
+
+script:
+  - bundle install
+  - bundle exec jekyll build
+
 sudo: false
 
-cache:
-  bundler: true
-  yarn: true
-  directories:
-    - node_modules # NPM packages
+
 
 branches:
   only:
@@ -17,10 +18,3 @@ branches:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
-
-before_install:
-  - nvm install 6
-  - npm install -g yarn && yarn
-
-script:
-  - gulp build --prod
