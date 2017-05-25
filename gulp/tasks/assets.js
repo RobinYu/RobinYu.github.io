@@ -1,8 +1,9 @@
+'use strict';
 var gulp = require('gulp');
-browserSync = require('browser-sync');
-sass = require('gulp-sass');
-argv = require('yargs').argv;
-shell = require('shelljs');
+var browserSync = require('browser-sync').create();
+var sass = require('gulp-sass');
+var argv = require('yargs').argv;
+var shell = require('shelljs');
 
 
 // include paths file
@@ -27,13 +28,18 @@ var paths        = require('../paths');
 
 // 静态服务器 + 监听 scss/html 文件
 gulp.task('serve', (done) => {
-  browserSync({
-    server: {
-      baseDir: '_site'
-    }
+  browserSync.init({
+    // tunnel: true,
+    // open: false,
+    port: 4000, // change port to match default Jekyll
+    ui: {
+      port: 4001
+    },
+    server: [paths.siteFolderName]
   });
   done();
 
   // watch various files for changes and do the needful
-  gulp.watch(paths.sassFilesGlob, gulp.series('styles'));
+  gulp.watch(paths.mdFilesGlob, gulp.series('build:site', reload));
+  gulp.watch(paths.sassFilesGlob, gulp.series('styles', reload));
 });
